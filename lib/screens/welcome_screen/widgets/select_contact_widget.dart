@@ -33,7 +33,7 @@ class _SelectContactWidgetState extends State<SelectContactWidget> {
       data: ThemeData(
         dividerColor: Colors.transparent,
         textTheme: TextTheme(
-          subtitle1: TextStyle(
+          headlineSmall: TextStyle(
             color: ColorConstants.inputFieldColor,
           ),
         ),
@@ -91,8 +91,7 @@ class _ExpansionTileWidget extends StatelessWidget {
 
   selectContact(BuildContext context) async {
     List<GroupContactsModel>? contactSelectedHistory = [];
-    Provider.of<WelcomeScreenProvider>(NavService.navKey.currentContext!,
-            listen: false)
+    Provider.of<WelcomeScreenProvider>(NavService.navKey.currentContext!, listen: false)
         .selectedContacts
         .forEach((GroupContactsModel? element) {
       contactSelectedHistory.add(element ?? GroupContactsModel());
@@ -106,9 +105,7 @@ class _ExpansionTileWidget extends StatelessWidget {
           showGroups: true,
           showContacts: true,
           selectedList: (s) {
-            Provider.of<WelcomeScreenProvider>(
-                    NavService.navKey.currentContext!,
-                    listen: false)
+            Provider.of<WelcomeScreenProvider>(NavService.navKey.currentContext!, listen: false)
                 .updateSelectedContacts(s);
             onSelected(s.length);
           },

@@ -89,195 +89,208 @@ class CommonUtilityFunctions {
     GlobalKey _one = GlobalKey();
     BuildContext? myContext;
     await showDialog(
-        barrierDismissible: true,
-        context: NavService.navKey.currentContext!,
-        builder: (BuildContext context) {
-          return ShowCaseWidget(builder: Builder(builder: (context) {
+      barrierDismissible: true,
+      context: NavService.navKey.currentContext!,
+      builder: (BuildContext context) {
+        return ShowCaseWidget(
+          builder: (context) {
             myContext = context;
-            return StatefulBuilder(builder: (context, stateSet) {
-              return Dialog(
+            return StatefulBuilder(
+              builder: (context, stateSet) {
+                return Dialog(
                   child: SingleChildScrollView(
-                child: Container(
-                  padding: EdgeInsets.all(20),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Row(
+                    child: Container(
+                      padding: EdgeInsets.all(20),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
                         children: [
-                          Expanded(
-                            child: Showcase(
-                              key: _one,
-                              description:
-                                  'You can have more than one atSign associated with this app and can remove one or all of the atSigns from the app at any time.',
-                              shapeBorder: CircleBorder(),
-                              disableAnimation: true,
-                              radius: BorderRadius.all(Radius.circular(40)),
-                              showArrow: false,
-                              overlayPadding: EdgeInsets.all(5),
-                              blurValue: 2,
+                          Row(
+                            children: [
+                              Expanded(
+                                child: Showcase(
+                                  key: _one,
+                                  description:
+                                      'You can have more than one atSign associated with this app and can remove one or all of the atSigns from the app at any time.',
+                                  targetShapeBorder: CircleBorder(),
+                                  disableMovingAnimation: true,
+                                  disableScaleAnimation: true,
+                                  targetBorderRadius:
+                                      BorderRadius.all(Radius.circular(40)),
+                                  showArrow: false,
+                                  targetPadding: EdgeInsets.all(5),
+                                  blurValue: 2,
+                                  child: Text(
+                                    TextStrings.resetDescription,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  ShowCaseWidget.of(myContext!)
+                                      .startShowCase([_one]);
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: Colors.grey.shade400,
+                                      borderRadius: BorderRadius.circular(50)),
+                                  margin: EdgeInsets.all(0),
+                                  height: 20,
+                                  width: 20,
+                                  child: Icon(
+                                    Icons.question_mark,
+                                    size: 15,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Divider(
+                            thickness: 0.8,
+                          ),
+                          atsignsList!.isEmpty
+                              ? Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                      Text(TextStrings.noAtsignToReset,
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.normal,
+                                          )),
+                                      Align(
+                                        alignment: Alignment.bottomRight,
+                                        child: TextButton(
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                          child: Text(
+                                            TextStrings().buttonClose,
+                                            style: TextStyle(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.normal,
+                                              // color: AtTheme.themecolor,
+                                            ),
+                                          ),
+                                        ),
+                                      )
+                                    ])
+                              : Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    CheckboxListTile(
+                                      onChanged: (value) {
+                                        isSelectAll = value;
+                                        atsignMap.updateAll(
+                                            (key, value1) => value1 = value);
+                                        // atsignMap[atsign] = value;
+                                        stateSet(() {});
+                                      },
+                                      value: isSelectAll,
+                                      checkColor: Colors.white,
+                                      activeColor:
+                                          Theme.of(context).primaryColor,
+                                      title: Text(TextStrings().selectAll,
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                          )),
+                                    ),
+                                    for (var atsign in atsignsList)
+                                      CheckboxListTile(
+                                        onChanged: (value) {
+                                          atsignMap[atsign] = value;
+                                          stateSet(() {});
+                                        },
+                                        value: atsignMap[atsign],
+                                        checkColor: Colors.white,
+                                        activeColor:
+                                            Theme.of(context).primaryColor,
+                                        title: Text('$atsign'),
+                                      ),
+                                    Divider(thickness: 0.8),
+                                  ],
+                                ),
+                          if (isSelectAtsign)
+                            Text(TextStrings.resetErrorText,
+                                style: TextStyle(
+                                  color: Colors.red,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                )),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(TextStrings.resetWarningText,
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.normal,
+                              )),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(children: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
                               child: Text(
-                                TextStrings.resetDescription,
-                                textAlign: TextAlign.center,
+                                TextStrings().buttonCancel,
                                 style: TextStyle(
                                   fontSize: 15,
+                                  color: Colors.black,
                                   fontWeight: FontWeight.normal,
                                 ),
                               ),
                             ),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              ShowCaseWidget.of(myContext!)
-                                  .startShowCase([_one]);
-                            },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.grey.shade400,
-                                  borderRadius: BorderRadius.circular(50)),
-                              margin: EdgeInsets.all(0),
-                              height: 20,
-                              width: 20,
-                              child: Icon(
-                                Icons.question_mark,
-                                size: 15,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Divider(
-                        thickness: 0.8,
-                      ),
-                      atsignsList!.isEmpty
-                          ? Column(mainAxisSize: MainAxisSize.min, children: [
-                              Text(TextStrings.noAtsignToReset,
+                            Spacer(),
+                            TextButton(
+                              style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all(
+                                      Theme.of(context).primaryColor)),
+                              onPressed: () async {
+                                var tempAtsignMap = {};
+                                tempAtsignMap.addAll(atsignMap);
+                                tempAtsignMap.removeWhere(
+                                    (key, value) => value == false);
+                                int atsignsListLength =
+                                    tempAtsignMap.keys.toList().length;
+                                if (tempAtsignMap.keys.toList().isEmpty) {
+                                  isSelectAtsign = true;
+                                  stateSet(() {});
+                                } else {
+                                  showConfirmationDialog(() async {
+                                    isSelectAtsign = false;
+                                    await _resetDevice(
+                                        tempAtsignMap.keys.toList());
+                                    await _onboardNextAtsign();
+                                  }, 'Remove ${atsignsListLength} atSign${atsignsListLength > 1 ? 's' : ''} from this device?');
+                                }
+                              },
+                              child: Text(TextStrings().remove,
                                   style: TextStyle(
+                                    color: Colors.white,
                                     fontSize: 15,
                                     fontWeight: FontWeight.normal,
                                   )),
-                              Align(
-                                alignment: Alignment.bottomRight,
-                                child: TextButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  child: Text(
-                                    TextStrings().buttonClose,
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.normal,
-                                      // color: AtTheme.themecolor,
-                                    ),
-                                  ),
-                                ),
-                              )
-                            ])
-                          : Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                CheckboxListTile(
-                                  onChanged: (value) {
-                                    isSelectAll = value;
-                                    atsignMap.updateAll(
-                                        (key, value1) => value1 = value);
-                                    // atsignMap[atsign] = value;
-                                    stateSet(() {});
-                                  },
-                                  value: isSelectAll,
-                                  checkColor: Colors.white,
-                                  activeColor: Theme.of(context).primaryColor,
-                                  title: Text(TextStrings().selectAll,
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                      )),
-                                ),
-                                for (var atsign in atsignsList)
-                                  CheckboxListTile(
-                                    onChanged: (value) {
-                                      atsignMap[atsign] = value;
-                                      stateSet(() {});
-                                    },
-                                    value: atsignMap[atsign],
-                                    checkColor: Colors.white,
-                                    activeColor: Theme.of(context).primaryColor,
-                                    title: Text('$atsign'),
-                                  ),
-                                Divider(thickness: 0.8),
-                              ],
                             ),
-                      if (isSelectAtsign)
-                        Text(TextStrings.resetErrorText,
-                            style: TextStyle(
-                              color: Colors.red,
-                              fontSize: 14,
-                              fontWeight: FontWeight.normal,
-                            )),
-                      SizedBox(
-                        height: 10,
+                          ])
+                        ],
                       ),
-                      Text(TextStrings.resetWarningText,
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.normal,
-                          )),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Row(children: [
-                        TextButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: Text(
-                            TextStrings().buttonCancel,
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.black,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                        ),
-                        Spacer(),
-                        TextButton(
-                          style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(
-                                  Theme.of(context).primaryColor)),
-                          onPressed: () async {
-                            var tempAtsignMap = {};
-                            tempAtsignMap.addAll(atsignMap);
-                            tempAtsignMap
-                                .removeWhere((key, value) => value == false);
-                            int atsignsListLength =
-                                tempAtsignMap.keys.toList().length;
-                            if (tempAtsignMap.keys.toList().isEmpty) {
-                              isSelectAtsign = true;
-                              stateSet(() {});
-                            } else {
-                              showConfirmationDialog(() async {
-                                isSelectAtsign = false;
-                                await _resetDevice(tempAtsignMap.keys.toList());
-                                await _onboardNextAtsign();
-                              }, 'Remove ${atsignsListLength} atSign${atsignsListLength > 1 ? 's' : ''} from this device?');
-                            }
-                          },
-                          child: Text(TextStrings().remove,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 15,
-                                fontWeight: FontWeight.normal,
-                              )),
-                        ),
-                      ])
-                    ],
+                    ),
                   ),
-                ),
-              ));
-            });
-          }));
-        });
+                );
+              },
+            );
+          },
+        );
+      },
+    );
   }
 
   _resetDevice(List checkedAtsigns) async {

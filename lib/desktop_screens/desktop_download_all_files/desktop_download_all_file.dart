@@ -113,7 +113,7 @@ class _DesktopDownloadAllFilesState extends State<DesktopDownloadAllFiles> {
   }
 
   _setDownloadFolder() async {
-    String path = (await getSavePath()) ?? Platform.pathSeparator;
+    String path = (await getSaveLocation()).toString();
     if (mounted) {
       setState(() {
         downloadFolder = path;

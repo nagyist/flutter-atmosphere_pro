@@ -34,7 +34,7 @@ class _AtSignBottomSheetState extends State<AtSignBottomSheet> {
     Random r = Random();
 
     return ShowCaseWidget(
-      builder: Builder(builder: (context) {
+      builder: (context) {
         myContext = context;
         return Stack(
           children: [
@@ -59,11 +59,13 @@ class _AtSignBottomSheetState extends State<AtSignBottomSheet> {
                               key: _one,
                               description:
                                   'You can pair multiple atSigns with this app.',
-                              shapeBorder: CircleBorder(),
-                              disableAnimation: true,
-                              radius: BorderRadius.all(Radius.circular(40)),
+                              targetShapeBorder: CircleBorder(),
+                              disableMovingAnimation: true,
+                              disableScaleAnimation: true,
+                              targetBorderRadius:
+                                  BorderRadius.all(Radius.circular(40)),
                               showArrow: false,
-                              overlayPadding: EdgeInsets.all(5),
+                              targetPadding: EdgeInsets.all(5),
                               blurValue: 2,
                               child: Padding(
                                 padding: EdgeInsets.symmetric(
@@ -115,9 +117,6 @@ class _AtSignBottomSheetState extends State<AtSignBottomSheet> {
                                                 .checkToOnboard(
                                                     atSign: widget
                                                         .atSignList![index]);
-
-                                            Navigator.pop(context);
-                                            // Navigator.pop(context);
                                           },
                                     child: Padding(
                                       padding: EdgeInsets.only(
@@ -181,11 +180,13 @@ class _AtSignBottomSheetState extends State<AtSignBottomSheet> {
                                   key: _two,
                                   description:
                                       'Use the + icon to either generate a new free atSign or pair an existing one. All paired atSigns will appear here, where you can switch between them.',
-                                  shapeBorder: CircleBorder(),
-                                  radius: BorderRadius.all(Radius.circular(40)),
+                                  targetShapeBorder: CircleBorder(),
+                                  disableMovingAnimation: true,
+                                  disableScaleAnimation: true,
+                                  targetBorderRadius:
+                                      BorderRadius.all(Radius.circular(40)),
                                   showArrow: false,
-                                  disableAnimation: true,
-                                  overlayPadding: EdgeInsets.all(5),
+                                  targetPadding: EdgeInsets.all(5),
                                   blurValue: 2,
                                   child: Container(
                                     margin: EdgeInsets.only(right: 10),
@@ -209,7 +210,7 @@ class _AtSignBottomSheetState extends State<AtSignBottomSheet> {
             ),
           ],
         );
-      }),
+      },
     );
   }
 }

@@ -29,52 +29,56 @@ environment:
   sdk: ">=2.12.0 <4.0.0"
 
 dependencies:
-  flutter:
-    sdk: flutter
   archive: ^3.2.2
+
+  at_backupkey_flutter: ^4.0.9
+  at_client_mobile: ^3.2.12
+  at_common_flutter: ^2.0.12
+  at_commons: ^4.1.2
+  at_contact: ^3.0.7
+  at_contacts_flutter: ^4.0.9
+  at_contacts_group_flutter: ^4.0.11
+  at_onboarding_flutter: ^6.0.0
+    # git:
+    #   path: packages/at_onboarding_flutter
+    #   ref: 32abc3b7057c06faa5f2bfaff5b389c36087d375
+    #   url: https://github.com/atsign-foundation/at_widgets.git
+  at_sync_ui_flutter: ^1.0.8
+
+  biometric_storage: ^5.0.0+4
+  carousel_slider: ^5.0.0
   cupertino_icons: ^1.0.6
-  file_picker: ^5.3.3
-  filesystem_picker: ^3.1.0
   desktop_window: ^0.4.0
+  file_picker: ^6.2.1
+  file_selector: ^1.0.3
+  file_selector_macos: ^0.9.4
+  filesystem_picker: ^4.1.0
+  flutter:
+      sdk: flutter
   flutter_keychain: ^2.1.0
-  flutter_local_notifications: ^9.4.0
-  flutter_slidable: ^0.6.0
-  google_fonts: ^5.1.0
-  intl: ^0.17.0
+  flutter_local_notifications: ^18.0.1
+  flutter_slidable: ^3.1.2
+  flutter_toastr: ^1.0.3
+  fluttertoast: ^8.0.9
+  google_fonts: ^4.0.0
+  http: any
+  intl: any
+  local_notifier: ^0.1.1
+  new_version: ^0.3.1
   open_file: ^3.2.1
+  package_info_plus: ^1.4.2
   pedantic: ^1.11.1
-  permission_handler: ^9.2.0
+  permission_handler: ^11.3.1
   provider: ^6.0.2
   qr_flutter: ^4.0.0
   receive_sharing_intent: ^1.4.5
-  rxdart: ^0.27.3
-  share_plus: ^4.5.3
+  rxdart: ^0.28.0
+  share_plus: ^7.2.2
+  showcaseview: ^3.0.0
   url_launcher: ^6.0.20
-  video_thumbnail: ^0.4.6
-  webview_flutter: ^4.0.1
-  http: ^0.13.4
-  package_info_plus: ^1.4.2
-  fluttertoast: ^8.0.9
-  file_selector: ^0.8.3
-  file_selector_macos: ^0.8.2
-  carousel_slider: ^4.0.0
-  flutter_toastr: ^1.0.3
   video_compress: ^3.1.0
-  new_version: ^0.3.1
-
-  at_commons: ^3.0.55
-  at_contact: ^3.0.7
-  at_common_flutter: ^2.0.12
-
-  at_client_mobile: ^3.2.12
-  at_onboarding_flutter: ^6.0.3
-  at_backupkey_flutter: ^4.0.9
-  at_contacts_flutter: ^4.0.9
-  at_contacts_group_flutter: ^4.0.11
-  local_notifier: ^0.1.1
-  at_sync_ui_flutter: ^1.0.8
-  showcaseview: ^1.1.5
-  biometric_storage: ^5.0.0+4
+  video_thumbnail: ^0.5.3
+  webview_flutter: ^4.0.1
 
 dev_dependencies:
   flutter_test:
