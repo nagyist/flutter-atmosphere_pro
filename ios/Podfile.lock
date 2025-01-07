@@ -84,7 +84,7 @@ PODS:
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
-  - permission_handler_apple (9.1.1):
+  - permission_handler_apple (9.3.0):
     - Flutter
   - qr_code_scanner (0.2.0):
     - Flutter
@@ -113,6 +113,7 @@ PODS:
     - libwebp
   - webview_flutter_wkwebview (0.0.1):
     - Flutter
+    - FlutterMacOS
 
 DEPENDENCIES:
   - at_backupkey_flutter (from `.symlinks/plugins/at_backupkey_flutter/ios`)
@@ -141,7 +142,7 @@ DEPENDENCIES:
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
   - video_compress (from `.symlinks/plugins/video_compress/ios`)
   - video_thumbnail (from `.symlinks/plugins/video_thumbnail/ios`)
-  - webview_flutter_wkwebview (from `.symlinks/plugins/webview_flutter_wkwebview/ios`)
+  - webview_flutter_wkwebview (from `.symlinks/plugins/webview_flutter_wkwebview/darwin`)
 
 SPEC REPOS:
   trunk:
@@ -209,7 +210,7 @@ EXTERNAL SOURCES:
   video_thumbnail:
     :path: ".symlinks/plugins/video_thumbnail/ios"
   webview_flutter_wkwebview:
-    :path: ".symlinks/plugins/webview_flutter_wkwebview/ios"
+    :path: ".symlinks/plugins/webview_flutter_wkwebview/darwin"
 
 SPEC CHECKSUMS:
   at_backupkey_flutter: 48921a75415718560c801a16374cd504b714c5aa
@@ -218,36 +219,36 @@ SPEC CHECKSUMS:
   at_file_saver: 7341b40c09bde071008a40555d3e38fa0646e65e
   at_onboarding_flutter: 2cbfcd94971fed75fb1360871481381e5fa51998
   biometric_storage: 662167ef947fba48891850f0b3042f892a839e9a
-  device_info_plus: 335f3ce08d2e174b9fdc3db3db0f4e3b1f66bd89
+  device_info_plus: 71ffc6ab7634ade6267c7a93088ed7e4f74e5896
   DKImagePickerController: b512c28220a2b8ac7419f21c491fc8534b7601ac
   DKPhotoGallery: fdfad5125a9fdda9cc57df834d49df790dbb4179
-  emoji_picker_flutter: 1be8d27345ddbab2c7ab64daa904f63ff33043d2
-  file_picker: 07c75322ede1d47ec9bb4ac82b27c94d3598251a
+  emoji_picker_flutter: ed468d9746c21711e66b2788880519a9de5de211
+  file_picker: 9b3292d7c8bc68c8a7bf8eb78f730e49c8efc517
   file_selector_ios: f92e583d43608aebc2e4a18daac30b8902845502
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   flutter_image_compress_common: 1697a328fd72bfb335507c6bca1a65fa5ad87df1
   flutter_keychain: 082382ca04745cc72ed13aa3598c151bb2eb426b
   flutter_local_notifications: 395056b3175ba4f08480a7c5de30cd36d69827e4
-  fluttertoast: eaafdac812d1d69931004e881c87a8643b1c9111
+  fluttertoast: 76fea30fcf04176325f6864c87306927bd7d2038
   libwebp: f62cb61d0a484ba548448a4bd52aabf150ff6eef
   Mantle: c5aa8794a29a022dfbbfc9799af95f477a69b62d
   MTBBarcodeScanner: f453b33c4b7dfe545d8c6484ed744d55671788cb
   open_file_ios: 5ff7526df64e4394b4fe207636b67a95e83078bb
-  package_info_plus: 566e1b7a2f3900e4b0020914ad3fc051dcc95596
+  package_info_plus: af8e2ca6888548050f16fa2f1938db7b5a5df499
   path_provider_foundation: 080d55be775b7414fd5a5ef3ac137b97b097e564
-  permission_handler_apple: 3787117e48f80715ff04a3830ca039283d6a4f29
+  permission_handler_apple: 4ed2196e43d0651e8ff7ca3483a069d469701f2d
   qr_code_scanner: d77f94ecc9abf96d9b9b8fc04ef13f611e5a147a
   receive_sharing_intent: 222384f00ffe7e952bbfabaa9e3967cb87e5fe00
   SDWebImage: fd7e1a22f00303e058058278639bf6196ee431fe
   SDWebImageWebPCoder: 295a6573c512f54ad2dd58098e64e17dcf008499
-  share_plus: de6030e33b4e106470e09322d87cf2a4258d2d1d
+  share_plus: 50da8cb520a8f0f65671c6c6a99b3617ed10a58a
   shared_preferences_foundation: 9e1978ff2562383bd5676f64ec4e9aa8fa06a6f7
   SwiftyGif: 93a1cc87bf3a51916001cf8f3d63835fb64c819f
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   url_launcher_ios: 694010445543906933d732453a59da0a173ae33d
   video_compress: f2133a07762889d67f0711ac831faa26f956980e
   video_thumbnail: b637e0ad5f588ca9945f6e2c927f73a69a661140
-  webview_flutter_wkwebview: 45a041c7831641076618876de3ba75c712860c6b
+  webview_flutter_wkwebview: 44d4dee7d7056d5ad185d25b38404436d56c547c
 
 PODFILE CHECKSUM: db1b3d34103b9bca35e1d0bca266af8024bec0bc
 

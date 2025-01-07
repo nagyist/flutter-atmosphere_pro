@@ -8,7 +8,7 @@ import 'package:atsign_atmosphere_pro/services/snackbar_service.dart';
 import 'package:atsign_atmosphere_pro/utils/constants.dart';
 import 'package:atsign_atmosphere_pro/utils/text_strings.dart';
 import 'package:flutter/material.dart';
-import 'package:new_version/new_version.dart';
+import 'package:new_version_plus/new_version_plus.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;
@@ -161,7 +161,7 @@ class VersionService {
   }
 
   mobileUpgradedDialog() async {
-    final newVersion = NewVersion();
+    final newVersion = NewVersionPlus();
     final status = await newVersion.getVersionStatus();
 
     if (status != null && isNewVersionAvailable && version != null) {
