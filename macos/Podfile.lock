@@ -79,22 +79,22 @@ EXTERNAL SOURCES:
     :path: Flutter/ephemeral/.symlinks/plugins/video_compress/macos
 
 SPEC CHECKSUMS:
-  at_file_saver: 1fc6ed722f17c7a20ce79cce168d1100fcad4b95
-  biometric_storage: 43caa6e7ef00e8e19c074216e7e1786dacda9e76
-  desktop_window: fb7c4f12c1129f947ac482296b6f14059d57a3c3
-  device_info_plus: 5401765fde0b8d062a2f8eb65510fb17e77cf07f
-  emoji_picker_flutter: 533634326b1c5de9a181ba14b9758e6dfe967a20
-  file_selector_macos: f1b08a781e66103e3ba279fd5d4024a2478b3af6
-  flutter_local_notifications: 3805ca215b2fb7f397d78b66db91f6a747af52e4
+  at_file_saver: 598610e2f4579e4193faa1187fd4f87ffbfc3a0f
+  biometric_storage: 9de0cb4e591e52329ca0da7df42e964db6c526cf
+  desktop_window: de6acd6053564bdccd9f4b9473d25bf4f2ad9bdf
+  device_info_plus: b0fafc687fb901e2af612763340f1b0d4352f8e5
+  emoji_picker_flutter: b9d4f4d08bdf3168fa3827f1290d435083745a14
+  file_selector_macos: ff34a82a18d211c6b3f2cf1cde944a81215f0964
+  flutter_local_notifications: 453432cd6399a07d072885bc7828fb2307868856
   FlutterMacOS: 8f6f14fa908a6fb3fba0cd85dbd81ec4b251fb24
-  local_notifier: e9506bc66fc70311e8bc7291fb70f743c081e4ff
-  package_info_plus: 02d7a575e80f194102bef286361c6c326e4c29ce
-  path_provider_macos: 3c0c3b4b0d4a76d2bf989a913c2de869c5641a19
-  share_plus_macos: 853ee48e7dce06b633998ca0735d482dd671ade4
-  shared_preferences_macos: a64dc611287ed6cbe28fd1297898db1336975727
-  url_launcher_macos: 597e05b8e514239626bcf4a850fcf9ef5c856ec3
-  video_compress: c896234f100791b5fef7f049afa38f6d2ef7b42f
+  local_notifier: ebf072651e35ae5e47280ad52e2707375cb2ae4e
+  package_info_plus: 122abb51244f66eead59ce7c9c200d6b53111779
+  path_provider_macos: 82d15581c31241db7014019d6dc07fa7204c261d
+  share_plus_macos: bad864466cc8d3edc440a2dec8befc781bf002e4
+  shared_preferences_macos: 3e17ed9d0158c398abef2b9dcdadd7da18b41707
+  url_launcher_macos: 6349d2dd3f37b716ba25744e549144d6e0194edd
+  video_compress: 752b161da855df2492dd1a8fa899743cc8fe9534
 
 PODFILE CHECKSUM: 353c8bcc5d5b0994e508d035b5431cfe18c1dea7
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.16.2

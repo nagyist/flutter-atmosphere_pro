@@ -32,18 +32,13 @@ class LocalNotificationService {
   initializePlatformSpecifics() {
     var initializationSettingsAndroid =
         AndroidInitializationSettings('notification_icon');
-    var initializationSettingsIOS = IOSInitializationSettings(
+    var initializationSettingsIOS = DarwinInitializationSettings(
       requestAlertPermission: true,
       requestBadgePermission: true,
       requestSoundPermission: false,
-      onDidReceiveLocalNotification: (id, title, body, payload) async {
-        ReceivedNotification receivedNotification = ReceivedNotification(
-            id: id, title: title, body: body, payload: payload);
-        didReceivedLocalNotificationSubject.add(receivedNotification);
-      },
     );
 
-    var initializationSettingsMacos = MacOSInitializationSettings(
+    var initializationSettingsMacos = DarwinInitializationSettings(
         requestAlertPermission: true,
         requestBadgePermission: true,
         requestSoundPermission: true);
@@ -67,10 +62,13 @@ class LocalNotificationService {
 
   setOnNotificationClick(Function onNotificationClick) async {
     if (Platform.isIOS || Platform.isAndroid || Platform.isMacOS) {
-      await _notificationsPlugin.initialize(initializationSettings,
-          onSelectNotification: (String? payload) async {
-        onNotificationClick(payload);
-      });
+      await _notificationsPlugin.initialize(
+        initializationSettings,
+        onDidReceiveNotificationResponse:
+            (NotificationResponse response) async {
+          onNotificationClick(response.payload);
+        },
+      );
     }
   }
 
@@ -89,7 +87,7 @@ class LocalNotificationService {
         timeoutAfter: 50000,
         styleInformation: DefaultStyleInformation(true, true),
       );
-      var iosChannelSpecifics = IOSNotificationDetails();
+      var iosChannelSpecifics = DarwinNotificationDetails();
       var platformChannelSpecifics = NotificationDetails(
           android: androidChannelSpecifics, iOS: iosChannelSpecifics);
       NotificationPayload payload = NotificationPayload(

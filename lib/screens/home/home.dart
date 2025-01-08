@@ -104,7 +104,7 @@ class _HomeState extends State<Home> {
   }
 
   void acceptFiles() async {
-    await ReceiveSharingIntent.getMediaStream().listen(
+    await ReceiveSharingIntent.instance.getMediaStream().listen(
         (List<SharedMediaFile> value) async {
       _sharedFiles = value;
 
@@ -136,7 +136,7 @@ class _HomeState extends State<Home> {
     });
 
     // For sharing images coming from outside the app while the app is closed
-    await ReceiveSharingIntent.getInitialMedia().then(
+    await ReceiveSharingIntent.instance.getInitialMedia().then(
         (List<SharedMediaFile> value) async {
       _sharedFiles = value;
       if (_sharedFiles != null && _sharedFiles!.isNotEmpty) {

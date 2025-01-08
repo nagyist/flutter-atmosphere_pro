@@ -45,3 +45,6 @@ app.*.map.json
 
 # windows build
 windows/out/build/
+
+# FVM Version Cache
+.fvm/

@@ -31,35 +31,38 @@ class CustomOnboarding {
       bool isInit = false,
       Function? onError}) async {
     AtOnboardingResult result;
-    final OnboardingService _onboardingService =
-        OnboardingService.getInstance();
+    final OnboardingService _onboardingService = OnboardingService.getInstance();
 
-    _onboardingService.setAtsign = atSign;
+    try {
+      _onboardingService.setAtsign = atSign;
 
-    result = await AtOnboarding.onboard(
-        context: NavService.navKey.currentContext!,
-        config: AtOnboardingConfig(
-          atClientPreference: atClientPrefernce!,
-          domain: MixedConstants.ROOT_DOMAIN,
-          rootEnvironment: RootEnvironment.Production,
-          appAPIKey: MixedConstants.ONBOARD_API_KEY,
-          showPopupSharedStorage: true,
-        ),
-        isSwitchingAtsign: !isInit,
-        atsign: atSign);
+      result = await AtOnboarding.onboard(
+          context: NavService.navKey.currentContext!,
+          config: AtOnboardingConfig(
+            atClientPreference: atClientPrefernce!,
+            domain: MixedConstants.ROOT_DOMAIN,
+            rootEnvironment: RootEnvironment.Production,
+            appAPIKey: MixedConstants.ONBOARD_API_KEY,
+            showPopupSharedStorage: true,
+          ),
+          isSwitchingAtsign: !isInit,
+          atsign: atSign);
+
+      print('Onboarding result: $result');
+    } catch (e) {
+      print('Error in onboarding: $e');
+      return;
+    }
 
     switch (result.status) {
       case AtOnboardingResultStatus.success:
         final atsign = result.atsign!;
-        final OnboardingService _onboardingService =
-            OnboardingService.getInstance();
+        final OnboardingService _onboardingService = OnboardingService.getInstance();
         final value = _onboardingService.atClientServiceMap;
-        await AtClientManager.getInstance().setCurrentAtSign(
-            atsign, MixedConstants.appNamespace, atClientPrefernce);
+        await AtClientManager.getInstance().setCurrentAtSign(atsign, MixedConstants.appNamespace, atClientPrefernce);
 
         _backendService.atClientServiceInstance = value[atsign];
-        _backendService.currentAtSign =
-            value[atsign]!.atClientManager.atClient.getCurrentAtSign();
+        _backendService.currentAtSign = value[atsign]!.atClientManager.atClient.getCurrentAtSign();
 
         BackendService.getInstance().syncWithSecondary();
 
@@ -91,30 +94,20 @@ class CustomOnboarding {
 
         if (!isInit) {
           // if it is not init then we re-render the welcome screen
-          Provider.of<SwitchAtsignProvider>(NavService.navKey.currentContext!,
-                  listen: false)
-              .update();
-          Provider.of<FileTransferProvider>(NavService.navKey.currentContext!,
-                  listen: false)
-              .resetData();
+          Provider.of<SwitchAtsignProvider>(NavService.navKey.currentContext!, listen: false).update();
+          Provider.of<FileTransferProvider>(NavService.navKey.currentContext!, listen: false).resetData();
 
           /// WelcomeScreenHome "currentScreen" depends on WelcomeScreenProvider , so we first change FileTransferProvider and then WelcomeScreenProvider
-          Provider.of<WelcomeScreenProvider>(NavService.navKey.currentContext!,
-                  listen: false)
-              .resetData();
+          Provider.of<WelcomeScreenProvider>(NavService.navKey.currentContext!, listen: false).resetData();
         }
         break;
       case AtOnboardingResultStatus.error:
-        bool isInternet = Provider.of<InternetConnectivityChecker>(
-                NavService.navKey.currentContext!,
-                listen: false)
+        bool isInternet = Provider.of<InternetConnectivityChecker>(NavService.navKey.currentContext!, listen: false)
             .isInternetAvailable;
         ScaffoldMessenger.of(NavService.navKey.currentContext!).showSnackBar(
           SnackBar(
             content: Text(
-              isInternet
-                  ? 'Error in onboarding'
-                  : 'Onboarding failed, please check your network',
+              isInternet ? 'Error in onboarding' : 'Onboarding failed, please check your network',
             ),
             backgroundColor: ColorConstants.red,
           ),
@@ -135,12 +128,8 @@ class CustomOnboarding {
   }
 
   static getTransferData() async {
-    HistoryProvider historyProvider = Provider.of<HistoryProvider>(
-        NavService.navKey.currentContext!,
-        listen: false);
-    var myFilesProvider = Provider.of<MyFilesProvider>(
-        NavService.navKey.currentContext!,
-        listen: false);
+    HistoryProvider historyProvider = Provider.of<HistoryProvider>(NavService.navKey.currentContext!, listen: false);
+    var myFilesProvider = Provider.of<MyFilesProvider>(NavService.navKey.currentContext!, listen: false);
 
     historyProvider.resetData();
     myFilesProvider.resetData();
@@ -149,16 +138,10 @@ class CustomOnboarding {
     await historyProvider.getSentHistory();
     await myFilesProvider.init();
 
-    await Provider.of<TrustedContactProvider>(NavService.navKey.currentContext!,
-            listen: false)
-        .resetData();
-    await Provider.of<TrustedContactProvider>(NavService.navKey.currentContext!,
-            listen: false)
-        .getTrustedContact();
+    await Provider.of<TrustedContactProvider>(NavService.navKey.currentContext!, listen: false).resetData();
+    await Provider.of<TrustedContactProvider>(NavService.navKey.currentContext!, listen: false).getTrustedContact();
     await historyProvider.downloadAllTrustedSendersData();
 
-    Provider.of<FileDownloadChecker>(NavService.navKey.currentContext!,
-            listen: false)
-        .checkForUndownloadedFiles();
+    Provider.of<FileDownloadChecker>(NavService.navKey.currentContext!, listen: false).checkForUndownloadedFiles();
   }
 }
