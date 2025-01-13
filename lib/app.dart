@@ -41,21 +41,16 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<HistoryProvider>(
-            create: (context) => HistoryProvider()),
-        ChangeNotifierProvider<FileTransferProvider>(
-            create: (context) => FileTransferProvider()),
-        ChangeNotifierProvider<WelcomeScreenProvider>(
-            create: (context) => WelcomeScreenProvider()),
-        ChangeNotifierProvider<SideBarProvider>(
-            create: (context) => SideBarProvider()),
+        ChangeNotifierProvider<HistoryProvider>(create: (context) => HistoryProvider()),
+        ChangeNotifierProvider<FileTransferProvider>(create: (context) => FileTransferProvider()),
+        ChangeNotifierProvider<WelcomeScreenProvider>(create: (context) => WelcomeScreenProvider()),
+        ChangeNotifierProvider<SideBarProvider>(create: (context) => SideBarProvider()),
         ChangeNotifierProvider(create: (context) => TrustedContactProvider()),
         ChangeNotifierProvider(create: (context) => NestedRouteProvider()),
         ChangeNotifierProvider(create: (context) => SwitchAtsignProvider()),
         ChangeNotifierProvider(create: (context) => FileDownloadChecker()),
         ChangeNotifierProvider(create: (context) => FileProgressProvider()),
-        ChangeNotifierProvider(
-            create: (context) => InternetConnectivityChecker()),
+        ChangeNotifierProvider(create: (context) => InternetConnectivityChecker()),
         ChangeNotifierProvider(create: (context) => MyFilesProvider())
       ],
       child: MaterialApp(
@@ -67,9 +62,7 @@ class _MyAppState extends State<MyApp> {
               // if (Platform.isIOS) hideKeyboard(context);
             },
             child: MediaQuery(
-              data: data.copyWith(
-                  textScaleFactor:
-                      data.textScaleFactor > 1.1 ? 1.1 : data.textScaleFactor),
+              data: data.copyWith(textScaleFactor: data.textScaleFactor > 1.1 ? 1.1 : data.textScaleFactor),
               child: child!,
             ),
           );
@@ -79,6 +72,7 @@ class _MyAppState extends State<MyApp> {
         initialRoute: initialRoute,
         navigatorKey: NavService.navKey,
         theme: ThemeData(
+            useMaterial3: false,
             fontFamily: 'HelveticaNeu',
             scaffoldBackgroundColor: Colors.white,
             primaryColor: Color.fromARGB(255, 240, 94, 62),
