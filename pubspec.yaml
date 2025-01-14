@@ -17,7 +17,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 
 # Mobile version
-version: 1.0.14+78
+version: 1.0.14+80
 
 # Desktop version macos
 # version: 1.0.1+19
@@ -38,11 +38,7 @@ dependencies:
   at_contact: ^3.0.7
   at_contacts_flutter: ^4.0.9
   at_contacts_group_flutter: ^4.0.11
-  at_onboarding_flutter:
-    git:
-      path: packages/at_onboarding_flutter
-      ref: fce1bbd85a7f062bd38714241f8d5555ec6a4dcb
-      url: https://github.com/atsign-foundation/at_widgets.git
+  at_onboarding_flutter: 6.1.11
   at_sync_ui_flutter: ^1.0.8
 
   biometric_storage: ^5.0.0+4
