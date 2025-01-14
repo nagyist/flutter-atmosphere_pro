@@ -11,7 +11,7 @@ class TextStrings {
   String homeDescriptionDesktop = 'Truly encrypted\nfile transfer.';
   String homeDescriptionSub = 'Private. Simple. Secure.';
   String appName = 'atmospherePro';
-  String copyRight = '© 2022 The @ Company';
+  String copyRight = '© 2025 The @ Company';
   String homeFileTransferItsSafe = 'File transfer.\nIt’s safe!';
   String homeHassleFree = 'Hassle free.\n';
   String homeWeWillSetupAccount = 'We will set up your account right away.';
@@ -52,16 +52,14 @@ class TextStrings {
   String sidebarPrivacyPolicy = "Privacy Policy";
   String sidebarFaqs = 'FAQ';
   String sidebarAutoAcceptFile = 'Auto-Accept Files';
-  String sidebarEnablingMessage =
-      'Enabling this will auto-accept all the files sent by your contacts.';
+  String sidebarEnablingMessage = 'Enabling this will auto-accept all the files sent by your contacts.';
   String sidebarSwitchOut = 'Switch atSign';
   String sidebarDeleteAtsign = 'Delete atSign(s)';
   String sidebarContactUs = 'Contact us';
 
   String atSign = 'atSign';
   String switchingAtSign = 'Switching atsign...';
-  String deleteDataMessage =
-      'Are you sure you want to delete all data associated with';
+  String deleteDataMessage = 'Are you sure you want to delete all data associated with';
   String typeAtsignAbove = 'Type the atSign above to proceed';
   String actionCannotUndone = "Caution: this action can't be undone";
   //FAQs texts
@@ -119,8 +117,7 @@ class TextStrings {
   String wantToSendFile = ' wants to send you a file?';
 
   //add contact texts
-  String addContactHeading =
-      'Are you sure you want to add this person to your contacts list?';
+  String addContactHeading = 'Are you sure you want to add this person to your contacts list?';
   String yes = 'Yes';
   String no = 'No';
   String add = 'Add';
@@ -139,12 +136,9 @@ class TextStrings {
   String trustedSenders = 'Trusted Senders';
   String selectperson = 'Select Person';
   String noTrustedSenders = 'No Trusted Senders';
-  String addTrustedSender =
-      'Would you like to add people to your trusted senders list?';
-  String removeTrustedSender =
-      "Are you sure you want to remove this person from your trusted senders list?";
-  String removeGroupMember =
-      "Are you sure you want to remove this person from Group ?";
+  String addTrustedSender = 'Would you like to add people to your trusted senders list?';
+  String removeTrustedSender = "Are you sure you want to remove this person from your trusted senders list?";
+  String removeGroupMember = "Are you sure you want to remove this person from Group ?";
 
   // my groups
   String groups = 'Groups';
@@ -157,8 +151,7 @@ class TextStrings {
   String create = 'Create';
   String groupName = 'Group Name';
   String enterGroupName = 'Enter group name';
-  String removeGroup =
-      'Are you sure you want to remove this contact(s) from this group?';
+  String removeGroup = 'Are you sure you want to remove this contact(s) from this group?';
   String changeGroupPhoto = 'Change Group Photo';
   String removeGroupPhoto = 'Remove Group Photo';
 
@@ -190,8 +183,7 @@ class TextStrings {
     'image.persona',
   ];
 
-  String unknownAtsign(String atSign) =>
-      '$atSign is not found. Please check and try again.';
+  String unknownAtsign(String atSign) => '$atSign is not found. Please check and try again.';
   String atsignExists(String atSign) => '$atSign already exists';
   String emptyAtsign = 'Please enter an atSign';
 
@@ -231,8 +223,7 @@ class TextStrings {
   String selectedFiles = 'Selected files';
 
   // Desktop download all files
-  String recievedFileDownloadMsg =
-      'All the files you have received will be downloaded in the folder you select.';
+  String recievedFileDownloadMsg = 'All the files you have received will be downloaded in the folder you select.';
   String selectedDownloadFolder = 'Selected download folder: ';
   static const String selectDownloadFolder = 'Select download folder';
   String downloadingFiles = 'Downloading file(s)...';
@@ -300,15 +291,11 @@ class TextStrings {
   String unableToPerform = 'Unable to perform this action. Please try again.';
   String unableToAuthenticate = 'Unable to authenticate. Please try again.';
   String failedInProcessing = 'Failed in processing. Please try again.';
-  String unableToConnectServer =
-      'Unable to connect server. Please try again later.';
-  String unableToPerformRead_Write =
-      'Unable to perform read/write operation. Please try again.';
-  String unableToActivateServer =
-      'Unable to activate server. Please contact admin.';
+  String unableToConnectServer = 'Unable to connect server. Please try again later.';
+  String unableToPerformRead_Write = 'Unable to perform read/write operation. Please try again.';
+  String unableToActivateServer = 'Unable to activate server. Please contact admin.';
   String serverIsUnavailable = 'Server is unavailable. Please try again later.';
-  String unableToConnect =
-      'Unable to connect. Please check with network connection and try again.';
+  String unableToConnect = 'Unable to connect. Please check with network connection and try again.';
   String invalidAtSign = 'Invalid atsign is provided. Please contact admin.';
   String unknownError = 'Unknown error.';
 
@@ -326,32 +313,22 @@ class TextStrings {
   String to = 'to';
 
   static final String resetButton = 'Reset';
-  static const String resetDescription =
-      'This will remove the selected atSign and its details from this app only.';
-  static const String noAtsignToReset =
-      'There are no atSigns paired with this device.';
-  static const String resetErrorText =
-      'Please select at least one atSign to reset';
-  static const String resetWarningText =
-      'Warning: This action cannot be undone!';
-  static const String noInternet =
-      'Offline. Please check your internet connection and try again.';
+  static const String resetDescription = 'This will remove the selected atSign and its details from this app only.';
+  static const String noAtsignToReset = 'There are no atSigns paired with this device.';
+  static const String resetErrorText = 'Please select at least one atSign to reset';
+  static const String resetWarningText = 'Warning: This action cannot be undone!';
+  static const String noInternet = 'Offline. Please check your internet connection and try again.';
   static const uploaded = 'Uploaded';
   static const reUploadFileMsg = 'Do you want to re-upload file ?';
   static const uploadFile = 'Please upload file first.';
-  static const deleteFileConfirmationMsg =
-      'Are you sure you want to remove this item from your transfer history?';
-  static const deleteFileConfirmationMsgMyFiles =
-      'Are you sure you want to remove this item from your files list?';
-  static const deleteDownloadedFileMessage =
-      'Do you also want to delete the downloaded items?';
+  static const deleteFileConfirmationMsg = 'Are you sure you want to remove this item from your transfer history?';
+  static const deleteFileConfirmationMsgMyFiles = 'Are you sure you want to remove this item from your files list?';
+  static const deleteDownloadedFileMessage = 'Do you also want to delete the downloaded items?';
   static const delete = 'Delete';
   static const fileSizeLimit = 'File size can not exceed 50 Mb.';
   static const releaseTagError = 'Error in fetching release tag.';
-  static const upgradeDialogShowError =
-      'Error in showing app upgrade dialog box.';
-  static const appVersionFetchError =
-      'Could not fetch latest app version details.';
+  static const upgradeDialogShowError = 'Error in showing app upgrade dialog box.';
+  static const appVersionFetchError = 'Could not fetch latest app version details.';
   static const noInternetMsg = 'No internet available';
   static const permissionRequireMessage =
       'This action cannot be completed because the app does not have permission to access the required items. Please change the app permission settings to continue.';
