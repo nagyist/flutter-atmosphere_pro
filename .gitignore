@@ -48,3 +48,6 @@ windows/out/build/
 
 # FVM Version Cache
 .fvm/
+
+# Java keys
+*.jks
